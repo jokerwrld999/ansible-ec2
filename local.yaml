@@ -33,7 +33,7 @@
     - pre-configure
 
 - name: Deploying service
-  hosts: deployment
+  hosts: aws_ec2
   roles:
     - role: deployment
       tags: deployment

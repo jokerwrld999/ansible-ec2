@@ -4,7 +4,7 @@
 # user
 # Encrypt Password
 # python3 -c 'import crypt,getpass;pw=getpass.getpass();print(crypt.crypt(pw) if (pw==getpass.getpass("Confirm: ")) else exit())'
-custom_user: # >>> ubuntu | ec2-user | custom_user
+custom_user: ubuntu # >>> ubuntu | ec2-user | custom_user
 temp_dir: "~/temp"
 custom_user_passwd: "$6$RZfs90KoDRApkEmH$qEjZ0o9xbKZ8ccYAYizXnzpGGjeMESusS742ECv4IdEtjULFdmTc8SzqKFQ7P/d9eNHk1Tock5E01mPM0ofej0" # <-- admin
 
