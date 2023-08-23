@@ -1,0 +1,27 @@
+---
+- name: Pre-Configuration | Include Distro Variables
+  ansible.builtin.include_vars: "{{ ansible_distribution }}.yml"
+  tags: always
+
+- name: Pre-Configuration
+  block:
+    # User Configuration
+    - name: Pre-Configuration | Configure Root User
+      ansible.builtin.import_tasks: user_setup/root_config.yml
+    - name: Pre-Configuration | Configure Custom User
+      ansible.builtin.import_tasks: user_setup/user_config.yml
+    - name: Pre-Configuration | Configure Repositories
+      ansible.builtin.import_tasks: software/repositories.yml
+    - name: Pre-Configuration | Configure Dev Packages
+      ansible.builtin.import_tasks: software/packages_development.yml
+    - name: Pre-Configuration | Configure Tweaks
+      ansible.builtin.import_tasks: software/tweaks.yml
+    - name: Pre-Configuration | Configure Utilities
+      ansible.builtin.import_tasks: software/packages_utilities.yml
+    - name: Pre-Configuration | Configure Docker
+      ansible.builtin.import_tasks: software/packages_docker.yml
+
+  rescue:
+    - name: Pre-Configuration | Rescue
+      ansible.builtin.set_fact:
+        task_failed: true

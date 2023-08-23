@@ -1,0 +1,63 @@
+---
+- name: Software | Docker | Install package Arch
+  community.general.pacman:
+    name: docker
+    state: latest
+  when: ansible_distribution == "Archlinux"
+
+- name: Software | Docker | Download script Debian
+  ansible.builtin.get_url:
+    url: https://get.docker.com
+    dest: "{{ temp_dir }}/get-docker.sh"
+    mode: 0755
+  when: ansible_distribution in ["Debian", "Ubuntu"]
+
+- name: Software | Docker | Install package Debian
+  ansible.builtin.shell: ./get-docker.sh
+  args:
+    chdir: "{{ temp_dir }}"
+    creates: /usr/bin/docker
+  when: ansible_distribution in ["Debian", "Ubuntu"]
+
+- name: Software | Docker | Install package Fedora
+  ansible.builtin.dnf:
+    name: docker
+    state: latest
+  when: ansible_distribution == "Fedora"
+
+- name: Software | Docker | Create group
+  ansible.builtin.group:
+    name: docker
+    state: present
+
+- name: Software | Docker | Add user to group
+  ansible.builtin.user:
+    name: "{{ custom_user }}"
+    groups: docker
+    append: yes
+
+- name: Software | Docker | Reconnect to server session
+  ansible.builtin.meta: reset_connection
+
+- name: Software | Docker Compose | Install package
+  ansible.builtin.package:
+    name:
+      - docker-compose
+
+# - name: Software | Docker | Install pip packages
+#   ansible.builtin.pip:
+#     name:
+#       - docker
+#   when: ansible_distribution != "Archlinux"
+
+# - name: Software | Docker | Install pip packages Arch
+#   community.general.pacman:
+#     name:
+#       - python-docker
+#   when: ansible_distribution == "Archlinux"
+
+- name: Software | Docker | Start docker service
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: true

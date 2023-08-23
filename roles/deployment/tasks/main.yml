@@ -1,0 +1,14 @@
+---
+- name: Deployment | Include Distro Variables
+  ansible.builtin.include_vars: "{{ ansible_distribution }}.yml"
+  tags: always
+
+- name: Deployment
+  block:
+    - name: Deployment | Configure Root User
+      ansible.builtin.import_tasks: application/app.yml
+
+  rescue:
+    - name: Deployment | Rescue
+      ansible.builtin.set_fact:
+        task_failed: true
