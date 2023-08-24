@@ -1,9 +1,6 @@
 ---
-python_flake8_package: python3-flake8
 python_package: python3
 python_pip_package: python3-pip
 python_psutil_package: python3-psutil
-python_pyflakes_package: python3-pyflakes
 python_virtualenv_package: python3-virtualenv
-ruby_rake_package: rubygem-rake
 sudo_group: wheel

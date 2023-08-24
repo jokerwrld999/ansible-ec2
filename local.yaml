@@ -66,12 +66,12 @@
       when: ansible_distribution == "Fedora"
 
     - name: Telegram | Send completion alert
-      ansible.builtin.include_tasks: roles/pre-configure/tasks/alerts/completion_alert.yml
+      ansible.builtin.import_tasks: roles/pre-configure/tasks/alerts/completion_alert.yml
       when:
         - task_failed is not defined
 
     - name: Telegram | Send failure alert
-      ansible.builtin.include_tasks: roles/pre-configure/tasks/alerts/failure_alert.yml
+      ansible.builtin.import_tasks: roles/pre-configure/tasks/alerts/failure_alert.yml
       when:
         - task_failed is defined
         - task_failed == true
