@@ -1,0 +1,10 @@
+---
+- name: Update cache
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Restart sshd
+  ansible.builtin.service:
+    name: "{{ openssh_service }}"
+    state: restarted
+  failed_when: true

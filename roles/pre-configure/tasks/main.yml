@@ -10,18 +10,34 @@
       ansible.builtin.import_tasks: user_setup/root_config.yml
     - name: Pre-Configuration | Configure Custom User
       ansible.builtin.import_tasks: user_setup/user_config.yml
+
+    # Set up the ansible environment
+    - name: Pre-Configuration | Configure Ansible
+      ansible.builtin.import_tasks: system_setup/ansible_setup.yml
+
+    # Install software
     - name: Pre-Configuration | Configure Repositories
       ansible.builtin.import_tasks: software/repositories.yml
     - name: Pre-Configuration | Configure Dev Packages
       ansible.builtin.import_tasks: software/packages_development.yml
     - name: Pre-Configuration | Configure Tweaks
       ansible.builtin.import_tasks: software/tweaks.yml
-    - name: Pre-Configuration | Configure Utilities
-      ansible.builtin.import_tasks: software/packages_utilities.yml
     - name: Pre-Configuration | Configure Docker
       ansible.builtin.import_tasks: software/packages_docker.yml
+    - name: Pre-Configuration | Configure Utilities
+      ansible.builtin.import_tasks: software/packages_utilities.yml
+
+    # Perform remaining tasks:
+    - name: Pre-Configuration | Configure Logging
+      ansible.builtin.import_tasks: system_setup/logging.yml
+    - name: Pre-Configuration | Configure Microcode
+      ansible.builtin.import_tasks: system_setup/microcode.yml
+    - name: Pre-Configuration | Configure OpenSSH
+      ansible.builtin.import_tasks: system_setup/openssh.yml
+    - name: Pre-Configuration | Configure UFW
+      ansible.builtin.import_tasks: system_setup/ufw.yml
 
   rescue:
-    - name: Pre-Configuration | Rescue
+    - name: Pre-Configuration | Configure
       ansible.builtin.set_fact:
         task_failed: true
