@@ -14,13 +14,14 @@ pre-commit run -a
 ## Dynamic Inventory
 
 ```
-ansible-inventory -i  ./inventory/inventory_aws_ec2.yaml --graph
-ansible-inventory -i  ./inventory/inventory_aws_ec2.yaml --list
+ansible-inventory -i ./inventory/inventory_aws_ec2.yaml --graph
+ansible-inventory -i ./inventory/inventory_aws_ec2.yaml --list
 ```
 
 ## Export Env Variables
 
 ```
+export REGISTRY_URL=
 export DOCKER_USERNAME=
 export DOCKER_PASS=
 ```

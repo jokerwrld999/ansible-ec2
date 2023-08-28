@@ -1,13 +1,13 @@
 ---
-# - name: Docker login
-#   community.docker.docker_login:
-#     registry_url: https://index.docker.io/v1/
-#     username: "{{ docker_username }}"
-#     password: "{{ docker_pass }}"
+- name: Docker login
+  community.docker.docker_login:
+    registry_url: "{{ registry_url | default('https://index.docker.io/v1/') }}"
+    username: "{{ docker_username }}"
+    password: "{{ docker_pass }}"
 
 - name: Deploying Nginx Container
   community.docker.docker_container:
     name: nginx-proxy
-    image: nginx:1.13
+    image: "{{ docker_image | default('nginx:1.13') }}"
     published_ports: 80:80
     state: started
