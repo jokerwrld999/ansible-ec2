@@ -9,7 +9,7 @@ microcode_intel_install: true
 microcode_amd_install: false
 
 # Users Config
-custom_user: debian # >>> ubuntu | ec2-user | custom_user
+custom_user: ubuntu # >>> ubuntu | ec2-user | custom_user
 custom_hostname: "{{ custom_user }}-server"
 temp_dir: "tmp"
 
