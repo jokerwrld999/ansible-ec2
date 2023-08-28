@@ -46,6 +46,9 @@
     line: "{{ custom_user }} ALL=(ALL) NOPASSWD: ALL"
   when: new_sudoers_file.changed
 
+- name: Users | Custom | Reconnect to server session
+  ansible.builtin.meta: reset_connection
+
 - name: Users | Custom | Stat.config folder
   ansible.builtin.stat:
     path: "/home/{{ custom_user }}/.config"
