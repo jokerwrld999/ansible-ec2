@@ -4,6 +4,8 @@
     registry_url: "{{ registry_url | default('https://index.docker.io/v1/') }}"
     username: "{{ docker_username }}"
     password: "{{ docker_pass }}"
+  tags:
+    - docker_login
 
 - name: Deploying Nginx Container
   community.docker.docker_container:
