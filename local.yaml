@@ -13,7 +13,6 @@
     - name: Pre-run | Update package cache (debian, etc)
       ansible.builtin.apt:
         update_cache: yes
-        cache_valid_time: 3600
         name: "*"
         state: latest
       when: ansible_distribution in ["Debian", "Ubuntu"]
