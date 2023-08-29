@@ -9,5 +9,5 @@
   community.docker.docker_container:
     name: nginx-proxy
     image: "{{ docker_image }}"
-    published_ports: 80:80
+    published_ports: "{{ published_ports }}"
     state: started

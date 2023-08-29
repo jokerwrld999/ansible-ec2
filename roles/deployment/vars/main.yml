@@ -3,3 +3,4 @@ registry_url: "{{ lookup('env', 'REGISTRY_URL') | default('https://index.docker.
 docker_username: "{{ lookup('env', 'DOCKER_USERNAME') | default('', true)}}"
 docker_pass: "{{ lookup('env', 'DOCKER_PASS') | default('', true) }}"
 docker_image: "{{ lookup('env', 'DOCKER_IMAGE') | default('nginxdemos/hello', true) }}"
+published_ports: "{{ lookup('env', 'PUBLISHED_PORTS') | default('80:80', true) }}"
