@@ -62,3 +62,7 @@
     name: "*"
     state: latest
   tags: update
+
+- name: Software | Docker | Reboot server
+  ansible.builtin.reboot:
+    reboot_timeout: 3600
