@@ -11,13 +11,6 @@
   become: true
   become_user: "{{ custom_user }}"
   block:
-    - name: "Verify that required string variables are defined"
-      assert:
-        that:
-          - "'' > 0"
-          - "'' != None"
-        fail_msg: " needs to be set for the role to work"
-        success_msg: "Required variable is defined"
     - name: Deployment | Deploying Docker
       ansible.builtin.import_tasks: application/app.yml
 
