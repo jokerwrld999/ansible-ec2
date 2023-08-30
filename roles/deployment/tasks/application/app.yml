@@ -1,10 +1,13 @@
 ---
+# - name: Docker login
+#   community.docker.docker_login:
+#     registry_url: "{{ registry_url }}"
+#     username: "{{ docker_username }}"
+#     password: "{{ docker_pass }}"
+#   register: docker_login
 - name: Docker login
-  community.docker.docker_login:
-    registry_url: "{{ registry_url }}"
-    username: "{{ docker_username }}"
-    password: "{{ docker_pass }}"
-  register: docker_login
+  shell: |
+    docker login {{ registry_url }} -u {{ docker_username }} -p {{ docker_pass }}
 
 - name: Debug
   ansible.builtin.debug:
