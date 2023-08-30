@@ -19,12 +19,6 @@
     filename: debian-backports
   when: ansible_distribution == "Debian"
 
-# - name: Software | Repos | Add sources Ubuntu
-#   ansible.builtin.copy:
-#     src: distribution_packages/ubuntu_sources.list
-#     dest: /etc/apt/sources.list.d/
-#   when: ansible_distribution == "Ubuntu"
-
 - name: Software | Repos | Install package management tools
   ansible.builtin.package:
     name:
@@ -54,14 +48,3 @@
     dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
     dnf install -y fedora-workstation-Repos
   when: ansible_distribution == "Fedora" and rpmfusion_repos.stat.exists == false
-
-# - name: Software | Repos | Update
-#   ansible.builtin.package:
-#     update_cache: yes
-#     cache_valid_time: 3600
-#     name: "*"
-#     state: latest
-
-# - name: Software | Docker | Reboot server
-#   ansible.builtin.reboot:
-#     reboot_timeout: 3600
