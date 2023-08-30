@@ -13,7 +13,7 @@
       connection: local
 
 - name: Pre-run | Updating packages
-  tags: always
+  #tags: always
   hosts: all
   become: true
   pre_tasks:
@@ -53,7 +53,7 @@
       tags: deployment
 
 - name: Post-run | Cleaning up hosts
-  tags: always
+  #tags: always
   hosts: all
   become: true
   vars_files:
