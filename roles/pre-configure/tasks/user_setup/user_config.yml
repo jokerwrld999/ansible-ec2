@@ -143,6 +143,7 @@
     - { src: "theming.zsh" }
 
 - name: Generate an OpenSSH keypair with the default values (4096 bits, rsa)
+  become: false
   openssh_keypair:
     path: ~/.ssh/id_rsa
     owner: "{{ lookup('env', 'USER') }}"
