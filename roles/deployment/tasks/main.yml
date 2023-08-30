@@ -4,7 +4,7 @@
   tags: always
 
 - name: Deployment | Include Role Variables
-  ansible.builtin.include_vars: "../../pre-configure/main.yml"
+  ansible.builtin.include_vars: "../../pre-configure/vars/main.yml"
   tags: always
 
 - debug: msg={{ custom_user }}
