@@ -152,6 +152,7 @@
   tags: ssh
 
 - name: Users | {{ custom_user }} | Copy SSh Key
+  become_user: "{{ custom_user }}"
   ansible.posix.authorized_key:
      user: "{{ custom_user }}"
      state: present
