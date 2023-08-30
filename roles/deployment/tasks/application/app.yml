@@ -8,7 +8,7 @@
 
 - name: Debug
   ansible.builtin.debug:
-    msg: "{{ docker_username }}"
+    msg: "{{ docker_pass }}"
 #- name: Deploying Nginx Container
 #  community.docker.docker_container:
 #    name: nginx-proxy
