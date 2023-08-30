@@ -14,7 +14,6 @@
     - name: "Verify that required string variables are defined"
       assert:
         that:
-          - "{{ item.var }} is defined"
           - "{{ item.var }} | length > 0"
           - "{{ item.var }} != None"
         fail_msg: "{{ item.var }} needs to be set for the role to work"
