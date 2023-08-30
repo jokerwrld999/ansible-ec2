@@ -30,7 +30,7 @@
     append: yes
   with_items:
     - { user: "{{ custom_user }}" }
-    - { user: "{{ ansible_user }}" }
+    - { user: "{{ ansible_user_id }}" }
   tags: user_add
 
 - name: Software | Docker | Reconnect to server session
