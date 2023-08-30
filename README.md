@@ -21,7 +21,11 @@ ansible-inventory -i ./inventory/inventory_aws_ec2.yaml --list
 ## Export Env Variables
 
 ```
+export CUSTOM_USER=
 export REGISTRY_URL=
+export CONTAINER_NAME=
+export DOCKER_IMAGE=
+export PUBLISHED_PORTS=
 export DOCKER_USERNAME=
 export DOCKER_PASS=
 ```
