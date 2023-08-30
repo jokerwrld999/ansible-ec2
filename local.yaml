@@ -48,6 +48,7 @@
 
 - name: Deploying service
   hosts: aws_ec2
+  become: true
   roles:
     - role: deployment
       tags: deployment

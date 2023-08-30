@@ -1,5 +1,4 @@
 ---
-custom_user: "{{ lookup('env', 'CUSTOM_USER') | default('ubuntu', true) }}"
 registry_url: "{{ lookup('env', 'REGISTRY_URL') | default('https://index.docker.io/v1/', true) }}"
 docker_username: "{{ lookup('env', 'DOCKER_USERNAME') }}"
 docker_pass: "{{ lookup('env', 'DOCKER_PASS') }}"
