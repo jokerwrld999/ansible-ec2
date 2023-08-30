@@ -1,18 +1,17 @@
 ---
-- name: Docker login
-  community.docker.docker_login:
-    registry_url: "{{ registry_url }}"
-    username: "{{ docker_username }}"
-    password: "{{ docker_pass }}"
-  register: docker_login
+#- name: Docker login
+#  community.docker.docker_login:
+#    registry_url: "{{ registry_url }}"
+#    username: "{{ docker_username }}"
+#    password: "{{ docker_pass }}"
+#  register: docker_login
 
 - name: Debug
   ansible.builtin.debug:
-    var: docker_login
-
-- name: Deploying Nginx Container
-  community.docker.docker_container:
-    name: nginx-proxy
-    image: "{{ docker_image }}"
-    published_ports: "{{ published_ports }}"
-    state: started
+    msg: "{{ docker_username }}"
+#- name: Deploying Nginx Container
+#  community.docker.docker_container:
+#    name: nginx-proxy
+#    image: "{{ docker_image }}"
+#    published_ports: "{{ published_ports }}"
+#    state: started
