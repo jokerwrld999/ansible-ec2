@@ -4,6 +4,11 @@
     registry_url: "{{ registry_url }}"
     username: "{{ docker_username }}"
     password: "{{ docker_pass }}"
+  register: docker_login
+
+- name: Debug
+  ansible.builtin.debug:
+    var: docker_login
 
 - name: Deploying Nginx Container
   community.docker.docker_container:
