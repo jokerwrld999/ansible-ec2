@@ -148,6 +148,7 @@
     owner: "{{ lookup('env', 'USER') }}"
     group: "{{ lookup('env', 'USER') }}"
   connection: local
+  tags: ssh
 
 - name: Users | {{ custom_user }} | Copy SSh Key
   ansible.posix.authorized_key:
