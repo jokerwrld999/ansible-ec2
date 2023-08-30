@@ -3,9 +3,16 @@
   ansible.builtin.include_vars: "{{ ansible_distribution }}.yml"
   tags: always
 
+- name: Deployment | Include Role Variables
+  ansible.builtin.include_vars: "../../pre-configure/main.yml"
+  tags: always
+
+- debug: msg={{ custom_user }}
+  tags: always
+
 - name: Deployment
   block:
-    - name: Deployment | Configure Root User
+    - name: Deployment | Deploying Docker
       ansible.builtin.import_tasks: application/app.yml
 
   rescue:
