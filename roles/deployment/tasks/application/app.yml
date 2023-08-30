@@ -7,7 +7,7 @@
 #   register: docker_login
 - name: Docker login
   shell: |
-    docker login {{ registry_url }} -u {{ docker_username }} -p {{ docker_pass }}
+    echo "{{ docker_pass }}" | docker login {{ registry_url }} -u {{ docker_username }} --passwordstdin
 
 - name: Debug
   ansible.builtin.debug:
