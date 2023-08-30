@@ -6,7 +6,7 @@
 #     password: "{{ docker_pass }}"
 #   register: docker_login
 - name: Docker login
-  
+  become_user: "{{ custom_user }}"
   shell: |
     echo "{{ docker_pass }}" | docker login {{ registry_url }} -u {{ docker_username }} --password-stdin
 
