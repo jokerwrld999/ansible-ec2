@@ -4,9 +4,9 @@
   tags: always
 
 - name: Deployment
-  become_user: "{{ custom_user }}"
   block:
     - name: Deployment | Configure Root User
+      become_user: "{{ custom_user }}"
       ansible.builtin.import_tasks: application/app.yml
 
   rescue:
