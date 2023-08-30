@@ -144,17 +144,15 @@
 
 - name: Generate an OpenSSH keypair with the default values (4096 bits, rsa)
   become: false
-  openssh_keypair:
+  community.crypto.openssh_keypair:
     path: ~/.ssh/id_rsa
     owner: "{{ lookup('env', 'USER') }}"
     group: "{{ lookup('env', 'USER') }}"
   connection: local
-  tags: ssh
 
 - name: Users | {{ custom_user }} | Copy SSh Key
   become_user: "{{ custom_user }}"
   ansible.posix.authorized_key:
-     user: "{{ custom_user }}"
-     state: present
-     key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-  tags: ssh
+    user: "{{ custom_user }}"
+    state: present
+    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"

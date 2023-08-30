@@ -31,4 +31,3 @@
     name: "{{ openssh_service }}"
     enabled: yes
     state: started
-

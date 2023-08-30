@@ -7,7 +7,7 @@
 
 - name: Deploying {{ container_name }} Container
   community.docker.docker_container:
-   name: "{{ container_name }}"
-   image: "{{ docker_image }}"
-   published_ports: "{{ published_ports }}"
-   state: started
+    name: "{{ container_name }}"
+    image: "{{ docker_image }}"
+    published_ports: "{{ published_ports }}"
+    state: started
