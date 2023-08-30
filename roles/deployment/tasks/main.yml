@@ -16,8 +16,8 @@
         that:
           - "'' > 0"
           - "'' != None"
-        fail_msg: "{{ item.var }} needs to be set for the role to work"
-        success_msg: "Required variable {{ item.var }} is defined"
+        fail_msg: " needs to be set for the role to work"
+        success_msg: "Required variable is defined"
     - name: Deployment | Deploying Docker
       ansible.builtin.import_tasks: application/app.yml
 
