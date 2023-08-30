@@ -142,6 +142,13 @@
     - { src: "setopt.zsh" }
     - { src: "theming.zsh" }
 
+- name: Generate an OpenSSH keypair with the default values (4096 bits, rsa)
+  openssh_keypair:
+    path: ~/.ssh/id_rsa
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
+  connection: local
+
 - name: Users | {{ custom_user }} | Copy SSh Key
   ansible.posix.authorized_key:
      user: "{{ custom_user }}"
