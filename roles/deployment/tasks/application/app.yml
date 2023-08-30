@@ -4,10 +4,9 @@
     registry_url: "{{ registry_url }}"
     username: "{{ docker_username }}"
     password: "{{ docker_pass }}"
-  register: docker_login
 
 - name: Deploying Nginx Container
- community.docker.docker_container:
+  community.docker.docker_container:
    name: nginx-proxy
    image: "{{ docker_image }}"
    published_ports: "{{ published_ports }}"
