@@ -48,7 +48,6 @@
 
 - name: Deploying service
   hosts: aws_ec2
-  become_user: "{{ custom_user }}"
   roles:
     - role: deployment
       tags: deployment
