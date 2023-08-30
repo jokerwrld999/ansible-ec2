@@ -1,6 +1,6 @@
 ---
 - name: Pre-run | Wait 300 seconds for port 22
-  #tags: always
+  tags: always
   hosts: all
   become: true
   pre_tasks:
@@ -13,7 +13,7 @@
       connection: local
 
 - name: Pre-run | Updating packages
-  #tags: always
+  tags: always
   hosts: all
   become: true
   pre_tasks:
@@ -54,7 +54,7 @@
       tags: deployment
 
 - name: Post-run | Cleaning up hosts
-  #tags: always
+  tags: always
   hosts: all
   become: true
   vars_files:

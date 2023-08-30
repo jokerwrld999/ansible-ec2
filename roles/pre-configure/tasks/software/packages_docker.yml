@@ -25,13 +25,9 @@
 
 - name: Software | Docker | Add user to group
   ansible.builtin.user:
-    name: "{{ item.user }}"
+    name: "{{ custom_user }}"
     groups: docker
     append: yes
-  with_items:
-    - { user: "{{ custom_user }}" }
-    - { user: "{{ ansible_user_id }}" }
-  tags: user_add
 
 - name: Software | Docker | Reconnect to server session
   ansible.builtin.meta: reset_connection
