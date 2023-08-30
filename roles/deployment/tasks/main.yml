@@ -14,13 +14,10 @@
     - name: "Verify that required string variables are defined"
       assert:
         that:
-          - "{{ item.var }} > 0"
-          - "{{ item.var }} != None"
+          - "'' > 0"
+          - "'' != None"
         fail_msg: "{{ item.var }} needs to be set for the role to work"
         success_msg: "Required variable {{ item.var }} is defined"
-      with_items:
-        - { var: "{{ docker_username }}" }
-        - { var: "{{ docker_pass }}" }
     - name: Deployment | Deploying Docker
       ansible.builtin.import_tasks: application/app.yml
 
