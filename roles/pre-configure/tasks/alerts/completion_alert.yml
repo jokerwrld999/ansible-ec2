@@ -5,5 +5,6 @@
     api_args:
       chat_id: "{{ telegram_chat_id }}"
       parse_mode: "markdown"
-      text: "✔️  Ansible provision finished on *{{ ansible_hostname }}*"
+      text: "✔️  Ansible provision finished on *{{ ansible_hostname }}*
+        🌐 Connect to your service *{{ lookup('env', 'EC2_DNS') }}*"
   changed_when: false

@@ -1,18 +1,5 @@
 ---
 - name: Pre-run | Wait 300 seconds for port 22
-  tags: facts
-  hosts: localhost
-  connection: local
-  tasks:
-    - name: ec2 instance facts
-      ec2_remote_facts:
-        filters:
-          instance-state-name: running
-      register: ec2
-
-    - debug: var=ec2.instances
-
-- name: Pre-run | Wait 300 seconds for port 22
   tags: always
   hosts: all
   become: true
