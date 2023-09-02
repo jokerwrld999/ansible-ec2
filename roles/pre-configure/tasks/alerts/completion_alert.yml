@@ -5,6 +5,7 @@
     api_args:
       chat_id: "{{ telegram_chat_id }}"
       parse_mode: "markdown"
-      text: "✔️  Ansible provision finished on *{{ ansible_hostname }}*
-        🌐 Connect to your service *{{lookup('ansible.builtin.file', './publicDNS') }}*"
+      text: "✔️ Ansible Provisioning Complete\n
+        🖥️ Server: *{{ ansible_hostname }}*\n
+        🌐 Service URL: *{{ lookup('ansible.builtin.file', './publicDNS') }}*"
   changed_when: false
