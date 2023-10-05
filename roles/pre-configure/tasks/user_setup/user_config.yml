@@ -96,6 +96,7 @@
     group: "{{ custom_user }}"
     mode: 0600
   with_items:
+    - { src: "git/gitconfig", dest: ".gitconfig" }
     - { src: "htop/htoprc", dest: ".config/htop/htoprc" }
     - { src: "inputrc", dest: ".inputrc" }
     - { src: "zsh/zshrc", dest: ".zshrc" }
